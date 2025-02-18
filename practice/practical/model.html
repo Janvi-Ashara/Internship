@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      button {
+        background-color: grey;
+        height: 50px;
+        width: 100px;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        color: wheat;
+      }
+      .content {
+        background-color: rgb(230, 221, 221);
+        margin: 100px 80px;
+        position: relative;
+        display: none;
+      }
+      .top,
+      .bottom {
+        height: 80px;
+        width: auto;
+        background-color: rgb(178, 240, 240);
+        padding: 10px 10px;
+        color: rgb(9, 89, 180);
+      }
+      .top a {
+        float: right;
+        font-size: 25px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 25px;
+        margin-right: 20px;
+      }
+      p {
+        padding: 10px;
+        color: rgb(9, 89, 180);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <button id="btn" onclick="myFunction()">Open Modal</button>
+    </div>
+    <div class="content" id="content">
+      <header class="top">
+        <h1>Model Header</h1>
+        <a href="#"><i class="fa fa-close"></i></a>
+      </header>
+
+      <section>
+        <p>Hello World</p>
+        <p>Modals ae awesome</p>
+      </section>
+      <footer class="bottom">
+        <h3>Model Footer</h3>
+      </footer>
+    </div>
+    <script>
+  function myFunction(){
+          var btn1  =  document.getElementById("btn");
+          var model = document.getElementById("content");
+          model.style.display="block";
+  }
+    </script>
+  </body>
+</html>

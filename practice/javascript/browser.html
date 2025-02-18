@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <button  onclick="myFunction()">Click</button>
+    <p id="p1"></p>
+
+    <script>
+        document.getElementById('demo').innerHTML = "window width" + window.innerWidth + "px<br>" + window.innerHeight + "px";;
+        document.getElementById('demo').innerHTML="screen width" + screen.width;
+        document.getElementById("demo").innerHTML =
+"navigator.product is " + navigator.product;
+
+        function myFunction(){
+            let text;
+            let person=prompt("enter your name")
+            document.getElementById('p1').innerHTML="your name is : " + person;
+        }
+    </script>
+</body>
+</html>

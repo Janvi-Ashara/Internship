@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #prevBtn, #nextBtn {
+            cursor: pointer;
+        }
+
+        #prevBtn.active, #nextBtn.active {
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* button:disabled {
+            background-color: gray;
+            color: white;
+            cursor: not-allowed;
+        } */
+
+
+        #prevBtn.deactive, #nextBtn.deactive {
+            background-color: gray;
+            color: white;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body class="w-screen">
+    <div class="carousel-container overflow-hidden w-full ">
+        <div class="flex gap-3 mt-4 transition-transform duration-300">
+            <!-- 1 -->
+            <div class="carousel shrink-0">
+                <img src="nature1.jpg" alt="nature1" class="w-full">
+            </div>
+            <!-- 2 -->
+            <div class="carousel shrink-0">
+                <img src="nature1.jpg" alt="nature2" class="w-full">
+            </div>
+            <!-- 3 -->
+            <div class="carousel shrink-0">
+                <img src="nature1.jpg" alt="nature3" class="w-full">
+            </div>
+            <!-- 4 -->
+            <div class="carousel shrink-0 ">
+                <img src="nature1.jpg" alt="nature4" class="w-full">
+            </div>
+            <!-- 5 -->
+            <div class="carousel shrink-0 ">
+                <img src="nature1.jpg" alt="nature5" class="w-full">
+            </div>
+            <!-- 6 -->
+            <div class="carousel shrink-0 ">
+                <img src="nature1.jpg" alt="nature6"  class="w-full">
+            </div>
+            <!-- 7 -->
+            <div class="carousel shrink-0 ">
+                <img src="nature1.jpg" alt="nature6"  class="w-full">
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-center gap-3 mt-3 ">
+        <button id="prevBtn" class="border border-black p-2 deactive">Prev</button>
+        <button id="nextBtn" class="border border-black p-2 active">Next</button>
+    </div>
+
+
+    <script>
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carousels = carouselContainer.querySelector('.flex');
+        const images = document.querySelectorAll('.carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const total = images.length;
+        const gap = 12
+        let index = 0;
+        let visible = 2;
+
+    
+        const updateCarousel = () => {
+            const containerWidth = carouselContainer.offsetWidth;
+            const Width = (containerWidth - (gap * (visible - 1))) / visible;
+            const offset = index * (Width + gap);
+
+            // const Width = images[0].clientWidth;
+            // const offset = index *( Width + 12);
+            // carousels.style.transform = `translateX(-${offset}px)`;
+
+            images.forEach(img => img.style.width = `${Width}px`);
+            carousels.style.transform = `translateX(-${offset}px)`;
+            
+            if (index === 0) {
+                prevBtn.classList.add('deactive');
+                prevBtn.classList.remove('active');
+            } else {
+                prevBtn.classList.add('active');
+                prevBtn.classList.remove('deactive');
+            }
+
+            if (index >= total - visible) {
+                nextBtn.classList.add('deactive');
+                nextBtn.classList.remove('active');
+            } else {
+                nextBtn.classList.add('active');
+                nextBtn.classList.remove('deactive');
+            }
+        };
+
+        prevBtn.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (index < total - visible) {
+                index++;
+                updateCarousel();
+            }
+        });
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel();
+    </script>
+</body>
+
+</html>

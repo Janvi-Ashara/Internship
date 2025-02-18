@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <!-- <p id="intro">find HTML by id</p> -->
+    <p class="intro">Hello world Welcome Students</p>
+    <p id="demo"></p>
+    <!-- <p id="mca">Find by tag </p> -->
+    <script>
+      //by id
+      // const element = document.getElementById('intro');
+      // document.getElementById('demo').innerHTML="element is find : "+  element.innerHTML;
+
+      // //by tagname
+      // const e = document.getElementsByTagName("p");
+      // document.getElementById('mca').innerHTML="element is find by tag : "+ e[0].innerHTML;
+
+      //by class name
+      // const ele = document.getElementsByClassName('intro');
+      // document.getElementById('demo').innerHTML= ele[0].innerHTML;
+
+      const x = document.getElementsByClassName("intro");
+      document.getElementById("demo").innerHTML =
+        'The first paragraph (index 0) with class="intro" is: ' +
+        x[0].innerHTML;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dropdown</title>
+    <style>
+      .contain {
+        padding: 20px;
+        background-color: #259beb;
+        border: none;
+        color: white;
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+      }
+      /* .drop {
+        position: relative;
+      } */
+
+      .contain:hover {
+        background-color: #3e6a8e;
+      }
+      .down {
+        min-width: 160px;
+        z-index: 1;
+        display: none;
+        position: absolute;
+        
+      }
+      .down a{
+        color: black;
+        text-decoration: none;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        display: block;
+        padding: 10px;
+        background-color: #f1f1ff;
+      }
+      
+      a:hover{
+        background-color: rgb(201, 196, 196);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="drop">
+      <button class="contain" onclick="myFunction()" id="contain">Click</button>
+      <div class="down" id="dropdown">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+    <script>
+      function myFunction(){
+      document.getElementById("dropdown").style.display="block";
+     document.addEventListener("click",outClicked)
+      }
+      function outClicked(e){
+        const dropcontain = document.getElementById("dropdown");
+        const btn = document.getElementById("contain");
+
+        if(!dropcontain.contains(e.target) && !btn.contains(e.target)){
+          dropcontain.style.display = "none";
+
+          document.removeEventListener("click",outClicked);
+        }
+      }
+    </script>
+  </body>
+  </html> 
+  

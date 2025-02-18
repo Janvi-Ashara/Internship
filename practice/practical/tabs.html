@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #navbar {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow: hidden;
+        background-color: #f1f1f1;
+      }
+      button {
+        float: left;
+        display: block;
+        border: none;
+        background-color: #f1f1f1;
+        padding: 14px 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: rgb(138, 145, 145);
+      }
+      #demo {
+        margin-top: 40px;
+        background-color: white;
+        text-decoration: none;
+      }
+      .active {
+        background-color: rgb(66, 68, 68);
+        color: wheat;
+        font-family:cursive ;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <button id="mybtn" onclick="myLondon(this)">London</button>
+      <button id="mybtn" onclick="myParis(this)">Paris</button>
+      <button id="mybtn" onclick="myIndia(this)">India</button>
+      <br />
+    </div>
+    <p id="demo"></p>
+
+    <script>
+      function myLondon(button) {
+        document.getElementById("demo").innerHTML =
+          "<h1>Hello London</h1><p>Welcome to Our Country in the UK</p>";
+        resetButtons();
+        button.classList.add("active");
+      }
+
+      function myParis(button) {
+        document.getElementById("demo").innerHTML =
+          "<h1>Hello Paris</h1><p>Welcome to the City of Lights</p>";
+        resetButtons();
+        button.classList.add("active");
+      }
+
+      function myIndia(button) {
+        document.getElementById("demo").innerHTML =
+          "<h1>Hello India</h1><p>Welcome to Our Diverse Country</p>";
+        resetButtons();
+        button.classList.add("active");
+      }
+      function resetButtons() {
+        const buttons = document.querySelectorAll("#navbar button");
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+      }
+    </script>
+  </body>
+</html>

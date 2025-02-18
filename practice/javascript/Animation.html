@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            height: 400px;
+            width:400px;
+            position: relative;
+            background-color: yellow;
+        }
+        #container{
+            height:50px;
+            width: 50px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+</head>
+<body onload="checkCookies()">
+    <h2 onclick="this.innerHTML = 'oops!!'">Click me!</h2>
+    <button onclick="myMove()">Click me</button><br><br>
+    <div id="main">
+        <div id="container">
+        </div>
+    </div>
+    <br>
+    <button id="mybtn">Try it!</button>
+    <p id="demo"></p>
+    <h1>Cookies</h1>
+    <p id="p1"></p>
+    <br>
+    <li>UpperCase </li>
+    Enter Your Name : 
+    <input type = 'text' oninput="uppercase()" id="fname">
+    <br><br>
+    <li>Mouse Over</li>
+    <button onmouseover="mOver(this)" onmouseout="mOut(this)" 
+    style="background-color: red;height: 40px;width:180px;">
+    Mouse Over Me</button>
+    <br>
+    <br>
+    <li>MouseUp & down Event</li>
+    <button onmouseup="mUp(this)" onmousedown="mDown(this)" 
+    style="background-color: red;height: 40px;width:180px;">
+    Click Me!</button>
+    <br>
+    <br>
+    <li><b>Add Event Listener</b></li>
+    <button id="btn">Try Me</button>
+    <p id="p2"></p>
+    <br>
+    <br>
+    <li><b>Click event Listener</b></li>
+    <button id="btn1">Click </button>
+
+    <li><b>Over and out</b></li>
+    <button id="btn2">Click me</button>
+    <p id="p3"></p>
+    <br>
+    <br>
+    <li>Math random value browser</li>
+    <p id="p4">hththt</p>
+    <script>
+        function myMove(){
+            let id=null;
+            const elem = document.getElementById('container');
+            let pos=0;
+            clearInterval(id);
+            id=setInterval(frame , 5);
+            function frame(){
+                if(pos == 350){
+                    clearInterval(id);
+                }
+                else{
+                    pos++;
+                    elem.style.bottom=pos + "px";
+                    elem.style.right=pos + "px"
+                }
+            }
+        }
+        document.getElementById('mybtn').onclick=displayDate;
+        function displayDate(){
+            document.getElementById('demo').innerHTML =Date();
+        }
+        function checkCookies(){
+            let text="";
+            if(navigator.cookieEnabled == false){
+                text = "cookies enable"
+            }
+            else{
+                text = "cookies disable"
+            }
+            document.getElementById('p1').innerHTML=text;
+        }
+        function uppercase(){
+            const x= document.getElementById('fname');
+            x.value = x.value.toUpperCase();
+        }
+        function mOver(txt){
+                txt.innerHTML = "Thank you"
+        }
+       function mOut(txt){
+        txt.innerHTML = "Mouse Over Me"
+       }
+       function mUp(txt){
+        txt.style.backgroundColor = "gray";
+        txt.innerHTML = "Thank You"
+       }
+       function mDown(txt){
+        txt.style.backgroundColor = "cyan";
+        txt.innerHTML="release me!";
+       }
+       document.getElementById('btn').addEventListener("click",dDate);
+       function dDate(){
+            document.getElementById('p2').innerHTML=Date();
+       }
+       document.getElementById('btn1').addEventListener('click',function(){
+        alert('Thank you for click me!')
+       })
+
+      var x=  document.getElementById('btn2');
+      x.addEventListener('click',myFunction);
+      x.addEventListener('mouseover',secondFunction);
+      x.addEventListener('mouseout',thirdFunction);
+
+      function myFunction() {
+        document.getElementById('p3').innerHTML += "clicked <br>";
+      }
+      function secondFunction(){
+        document.getElementById('p3').innerHTML += "Mouse over <br>";
+      }
+      function thirdFunction(){
+        document.getElementById('p3').innerHTML += "Mouse Out <br>"
+      }
+      window.addEventListener("resize" ,function(){
+        document.getElementById("p4").innerHTML=Math.random();
+      })
+</script>
+</body>
+</html>

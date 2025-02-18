@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hidden element</h1>
+    <p id='demo'>This is an hidden element</p>
+    <p id="main"style="display: none;" >Hello world</p>
+    <h1 id="add"></h1>
+    <button onclick="hide()">Click me!</button><br>
+    <button onclick="show()">Show me!</button><br>
+    <button onclick="document.write(6+7)">Try</button><br>
+    <button onclick="window.print()">Print the pages</button><br>
+    <h2 id="sum"></h2>
+    <script>
+        function hide(){
+            document.getElementById('demo').style.display="none";
+        }
+        function show(){
+            document.getElementById('main').style.display="block";
+        }
+        document.getElementById('add').innerHTML=6+2;
+        document.write(9+6);
+        // window.alert('ghost');
+        // alert('welcome');
+        console.log(5 *false);
+
+        // sum of two value
+        let x,y,z;
+        x=90
+        y=10
+        z=x+y
+        document.getElementById('sum').innerHTML="the value of z is"+ z;
+
+        </script>
+</body>
+</html>

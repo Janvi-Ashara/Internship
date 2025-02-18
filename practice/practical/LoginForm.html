@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    *{
+        box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+    .navbar { 
+        overflow: hidden;   
+      background-color: #f0ecec;
+    }
+    .navbar a {
+      color: black;
+      padding: 14px 16px;
+      display: block;
+      float: left;
+      text-align: center;
+      text-decoration: none;
+    }
+    a:hover {
+      background-color: #cac8c8;
+    }
+
+    .navbar a.active {
+      background-color: rgb(22, 164, 220);
+      color: white;
+    }
+    .navbar .search{
+        float:right;
+    }
+    
+    .navbar input[type="text"],
+    input[type="password"] {
+      border: none;
+      width: 150px;
+      font-size: 17px;
+      margin-top: 8px;
+      padding: 6px;
+    }
+    .navbar .search button:hover{
+        background: #ccc;
+    }
+    button {
+      background-color: #3433;
+      border: none;
+      font-size: 20px;
+    }
+    .navbar .search button {
+      float: right;
+      padding: 6px;
+      margin-top: 8px;
+      margin-right: 16px;
+      background: #ddd;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="navbar">
+      <a href="#" class="active">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <div class="search">
+        <form action="LoginForm.html">
+          <input type="text" placeholder="username" />
+          <input type="password" placeholder="password" />
+          <button>Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

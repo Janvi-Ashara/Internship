@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <h1 id="sum"></h1>
+    <h4 id="mul"></h4>
+    <script>
+        let result= myFunction(7,6);
+        document.getElementById('demo').innerHTML=result;
+        function myFunction(a,b){
+            return a*b
+        }
+        let equation = "total is " + mySum(4,6,4);
+        document.getElementById('sum').innerHTML=equation;
+            function mySum(a,b,c){
+            return (a*b) + c
+        }
+        let equation1 = mySum(4,6,4);
+        let text= "output is " + equation1;
+        document.getElementById('mul').innerHTML=text;
+            function mySum(a,b,c){
+            return (a*b) - c
+        }
+
+        // let person = {name: "janvi",age:22}
+        // document.getElementById('demo').innerHTML=person.name + " " + person.age;
+
+        // let friend = {};
+        // friend.name = "reesha";
+        // friend.age = 20;
+        // document.getElementById('demo').innerHTML=friend.name + " " + friend.age;
+ 
+        // let friend = new Object();
+        // friend.name = "vidhi";
+        // friend.age = 20;
+        // document.getElementById('demo').innerHTML=friend.name + " " + friend['age'];
+
+        // const person = {
+        //     firstName :"janvi",
+        //     lastname : 'ashara',
+        //     id:"3055",
+        //     name : function(){
+        //         return this.firstName + " " + this.lastname;
+        //     }
+        // };
+        // document.getElementById('demo').innerHTML = "my name is : " + person.name();
+
+        const person= {
+            name : "john doe",
+            age : 22,
+            dept: "mcom"
+        }
+        let txt = "";
+        for(let x in person){
+            txt = person[x] + " "; 
+        };
+        document.getElementById('demo').innerHTML=txt;
+
+    </script>
+</body>
+</html>
+<script>
+    // const person = {
+    //   firstName: "John",
+    //   lastName: "Doe",
+    //   id: 5566,
+    //   fullName: function() {
+    //     return this.firstName + " " + this.lastName;
+    //   }
+    // };

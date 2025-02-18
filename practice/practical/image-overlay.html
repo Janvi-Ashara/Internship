@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .image{
+        position: relative;
+        width: 50%;
+      }
+      .avatar{
+        display: block;
+        width: 50%;
+        height: auto;
+      }
+      .overlay {
+        position: absolute;
+        background-color: #008cba;
+        right: 0;
+        left:0;
+        top:0;
+        bottom: 0;
+        opacity: 0;
+        height: 100%;
+       width: inherit;
+        transition: .5s ease;
+       
+    }
+    .image:hover .overlay{
+      opacity: 1;
+    }
+      .text{
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%,-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image">
+      <img
+        class="avatar"
+        src="image1.jpeg"
+        alt="images"
+      />
+      <div class="overlay">
+        <div class="text">Hey Krishna...</div>
+      </div>
+    </div>
+  </body>
+</html>
