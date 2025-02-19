@@ -26,22 +26,28 @@ function Weather() {
   // const formopen = () => {
   //   setOpen(!open)
   // };
+  useEffect(() => {
+    const CityData = JSON.parse(localStorage.getItem("city")) || [];
+    setCities(CityData);
+  }, []);
 
   const formopen = (index = null) => {
     setOpen(true);
 
+    // update city code
     if (index !== null && cities[index]) {
       // Ensure city exists before accessing properties
-      setSelectedCityIndex(index);
-      const cityToEdit = cities[index];
+      setSelectedCityIndex(index); //This helps track which city is being edited.
 
-      setInputCity(cityToEdit.city || "");
-      setTemperature(cityToEdit.temperature || "");
-      setWeather(cityToEdit.weather || "Cloudy");
-      setHumidity(cityToEdit.humidity || "");
-      setWindspeed(cityToEdit.windspeed || "");
+      const cityToEdit = cities[index];  //Retrieves the city object from the cities array at the given index.
+      
+      setInputCity(cityToEdit.city);
+      setTemperature(cityToEdit.temperature);
+      setWeather(cityToEdit.weather);
+      setHumidity(cityToEdit.humidity);
+      setWindspeed(cityToEdit.windspeed);
     } else {
-      // Reset form for new entry
+      // Reset form for new entry (empty form is open), Ensures the user starts with a blank field when entering a new city.
       setSelectedCityIndex(null);
       setInputCity("");
       setTemperature("");
@@ -51,36 +57,6 @@ function Weather() {
     }
   };
 
-  useEffect(() => {
-    const CityData = JSON.parse(localStorage.getItem("city")) || [];
-    setCities(CityData);
-  }, []);
-
-  // const handleAddItem = () => {
-  //   if (inputCity && temperature && weather && humidity && windspeed) {
-  //     const newCityData = {
-  //       city: inputCity,
-  //       temperature: temperature,
-  //       weather: weather,
-  //       humidity: humidity,
-  //       windspeed: windspeed,
-  //     };
-  //     setCities((prevCityData) => {
-  //       const updatedCity = [...prevCityData, newCityData];
-  //       // update localStorage
-  //       localStorage.setItem("city", JSON.stringify(updatedCity));
-  //       return updatedCity;
-  //     });
-  //     setInputCity("");
-  //     setTemperature("");
-  //     setWeather("");
-  //     setHumidity("");
-  //     setWindspeed("");
-
-  //     // Close form after submission (optional)
-  //   setOpen(false);
-  //   }
-  // };
 
   const handleAddItem = (e) => {
     e.preventDefault(); // Prevent form refresh
@@ -142,7 +118,6 @@ function Weather() {
       <p className="text-xl sm:text-4xl font-bold text-center m-2 sm:m-6 text-yellow-400">
         Weather Forecasting Data
       </p>
-      {/* <p className="font-bold text-xl p-2 text-yellow-400 text-center">Enter Data To click on Add Button</p> */}
       <div className="overflow-x-auto p-2 ">
         <table className="w-full border">
           <thead className="bg-gray-300">
@@ -214,7 +189,7 @@ function Weather() {
           </tbody>
         </table>
         {/* No data found message outside the table */}
-    {cities.filter(
+    {cities.filter(  //filter return new array
       (city) =>
         city.city &&
         city.city.toLowerCase().includes(search.toLowerCase())

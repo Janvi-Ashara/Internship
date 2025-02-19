@@ -9,7 +9,7 @@ function LocalStorage() {
 
     useEffect(()=>{
         console.log("Add city :",city)
-        localStorage.setItem("(city)",JSON.stringify(city));
+        localStorage.setItem("(city)",JSON.stringify(city)); // method converts a JavaScript object into a JSON string.
     },[city])
 
     
