@@ -5,7 +5,7 @@ import usePaintHooks from './PaintHooks';
 
 
 function App() {
-  const [{canvasRef, ...states} , {init,...handleFn}] = usePaintHooks()
+  const [{canvasRef, ...states} ,  {init,...handleFn}] = usePaintHooks()
   return (
     <div className="flex h-screen">
       <Sidetoolbar {...handleFn} {...states} />
