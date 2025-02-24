@@ -50,7 +50,7 @@ function Sidetoolbar({
         </div>
       </div>
       <div className="mt-7">
-        <p className="text-lg font-semibold">Brush Thickness</p>
+        <p className=" text-lg font-semibold">Brush Thickness</p>
         <div>
           <input
             type="range"
