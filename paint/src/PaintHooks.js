@@ -28,7 +28,7 @@ const usePaintHooks = () => {
     console.log(ctx, canvasRef);
 
     drawingProgress.current = true;
-    [lastX.current, lastY.current] = [e.offsetX, e.offsetY];
+    [lastX.current, lastY.current] = [e.offsetX,  e.offsetY];
   };
   const stopDrawing = (e) => {
     console.log(ctx, canvasRef);
