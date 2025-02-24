@@ -152,7 +152,7 @@ function Weather() {
                     key={index}
                     className="text-center border even:bg-gray-200 odd:bg-slate-100"
                   >
-                    <td>{index + 1}</td>
+                    <td>{index+1}</td>
                     <td>{city.city}</td>
                     <td>{city.temperature}°C</td>
                     <td>{city.weather}</td>
