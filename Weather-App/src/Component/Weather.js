@@ -39,8 +39,8 @@ function Weather() {
       // Ensure city exists before accessing properties
       setSelectedCityIndex(index); //This helps track which city is being edited.
 
-      const cityToEdit = cities[index];  //Retrieves the city object from the cities array at the given index.
-      
+      const cityToEdit = cities[index]; //Retrieves the city object from the cities array at the given index.
+
       setInputCity(cityToEdit.city);
       setTemperature(cityToEdit.temperature);
       setWeather(cityToEdit.weather);
@@ -56,7 +56,6 @@ function Weather() {
       setWindspeed("");
     }
   };
-
 
   const handleAddItem = (e) => {
     e.preventDefault(); // Prevent form refresh
@@ -189,15 +188,15 @@ function Weather() {
           </tbody>
         </table>
         {/* No data found message outside the table */}
-    {cities.filter(  //filter return new array
-      (city) =>
-        city.city &&
-        city.city.toLowerCase().includes(search.toLowerCase())
-    ).length === 0 && (
-      <p className="font-bold text-2xl p-1 text-nowrap flex justify-center">
-        No data found !!
-      </p>
-    )}
+        {cities.filter(
+          //filter return new array
+          (city) =>
+            city.city && city.city.toLowerCase().includes(search.toLowerCase())
+        ).length === 0 && (
+          <p className="font-bold text-2xl p-1 text-nowrap flex justify-center">
+            No data found !!
+          </p>
+        )}
       </div>
       {/* update form */}
       {open && (
