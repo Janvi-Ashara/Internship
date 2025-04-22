@@ -1,0 +1,71 @@
+<!--  9. “Write a function called validatePasswords(first, second), which takes two string arguments called first and second. Your function needs to check if:
+passwords are equal
+passwords follow the provided password policy.
+If both the conditions are met then return true, otherwise return false.
+Password policy: “Minimum 8 characters long, at least 1 letter, 1 number and 1 special character”" -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password</title>
+  </head>
+  <style>
+    .myClass{
+        color: green;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .myClass1{
+        color: red;
+        font-size: 30px;
+        font-weight: 700;
+    }
+  </style>
+  <body>
+    <div>
+      <h1>Password checker</h1>
+      <label>Password : </label>
+      <input type="text" class="password" />
+      <br /><br />
+      <label>Cpassword : </label>
+      <input type="text" id="cpassword"  />
+      <br /><br />
+      <button onclick="printPass()">Submit</button>
+      <p class="msg"></p>
+    </div>
+  </body>
+  <script>
+    function printPass() {
+        const pass = document.querySelector(".password").value;
+        const cpass = document.querySelector("#cpassword").value;
+        let msg = document.querySelector(".msg");
+
+        if (!validatePassword(pass)) {  //The ! (NOT) operator means "if the password is NOT valid, execute this block."
+                msg.innerText = "Password must be at least 8 characters long, contain at least 1 letter, 1 number, and 1 special character.";
+                msg.classList.remove('myClass');
+                msg.classList.add('myClass1');
+                return;
+            }
+
+            // Check if passwords match
+            if (pass === cpass) {
+                msg.innerText = "Authorised";
+                msg.classList.remove('myClass1');
+                msg.classList.add('myClass');
+            } else {
+                msg.innerText = "Passwords do not match";
+                msg.classList.remove('myClass');
+                msg.classList.add('myClass1');
+            }
+        }
+
+        function validatePassword(password) {
+            const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/;
+            return regex.test(password);
+        }
+   
+</script>
+
+</html>

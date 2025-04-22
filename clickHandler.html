@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="green">Green</button>
+    <button id="orange">Orange</button>
+</body>
+<script>
+    // document.getElementById('green').onclick = function (){
+    //     document.body.style.backgroundColor = 'limegreen'
+    // }
+
+    // document.getElementById('orange').onclick = function(){
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+
+// lexical scoping : 
+function clickHandler(color){
+      return function(){
+        document.body.style.backgroundColor = `${color}`
+      }  
+}
+
+document.getElementById('orange').onclick = clickHandler('orange')
+document.getElementById('green').onclick = clickHandler('limegreen')
+
+</script>
+</html>
